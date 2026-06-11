@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mutia Palasari ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:radial-gradient(circle at top,#3b0764,#0f172a 60%);
+color:white;
+text-align:center;
+position:relative;
+}
+
+.stars{
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+}
+
+.star{
+position:absolute;
+background:white;
+border-radius:50%;
+animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+0%,100%{opacity:.2}
+50%{opacity:1}
+}
+
+.container{
+position:relative;
+z-index:10;
+max-width:900px;
+padding:20px;
+}
+
+.name{
+font-size:55px;
+font-weight:bold;
+color:#ffd6e7;
+text-shadow:0 0 20px #ff66c4;
+}
+
+.love{
+font-size:90px;
+font-weight:900;
+margin-top:10px;
+color:#ff4d6d;
+text-shadow:
+0 0 15px #ff4d6d,
+0 0 30px #ff4d6d,
+0 0 60px #ff4d6d;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+50%{
+transform:scale(1.08);
+}
+}
+
+.days{
+margin-top:15px;
+font-size:22px;
+}
+
+.buttons{
+margin-top:25px;
+}
+
+button{
+padding:14px 28px;
+border:none;
+border-radius:50px;
+margin:5px;
+cursor:pointer;
+font-size:16px;
+background:#ff4d6d;
+color:white;
+box-shadow:0 0 15px #ff4d6d;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+.message{
+display:none;
+margin-top:25px;
+padding:25px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(10px);
+border-radius:20px;
+font-size:18px;
+line-height:1.8;
+min-height:220px;
+animation:fadeIn .6s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.heart{
+position:absolute;
+font-size:20px;
+animation:float 8s linear infinite;
+color:#ff4d6d;
+}
+
+@keyframes float{
+from{
+transform:translateY(100vh);
+opacity:1;
+}
+to{
+transform:translateY(-100vh);
+opacity:0;
+}
+}
+
+.firework{
+position:absolute;
+font-size:30px;
+animation:boom 1.5s forwards;
+}
+
+@keyframes boom{
+0%{
+transform:scale(0);
+opacity:1;
+}
+100%{
+transform:scale(3);
+opacity:0;
+}
+}
+
+@media(max-width:768px){
+
+.name{
+font-size:35px;
+}
+
+.love{
+font-size:55px;
+}
+
+.days{
+font-size:18px;
+}
+
+.message{
+font-size:16px;
+}
+
+#countdownScreen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:radial-gradient(circle at top,#3b0764,#0f172a 60%);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:99999;
+transition:1.5s;
+}
+
+#countdownNumber{
+font-size:150px;
+font-weight:bold;
+color:white;
+text-shadow:
+0 0 20px #ff4d6d,
+0 0 40px #ff4d6d,
+0 0 80px #ff4d6d;
+animation:zoomGlow 1s infinite;
+}
+
+@keyframes zoomGlow{
+
+0%{
+transform:scale(.6);
+opacity:.4;
+}
+
+100%{
+transform:scale(1.2);
+opacity:1;
+}
+
+}
+
+.fadeMain{
+animation:fadeMain 2s ease forwards;
+}
+
+@keyframes fadeMain{
+
+from{
+opacity:0;
+transform:scale(.95);
+}
+
+to{
+opacity:1;
+transform:scale(1);
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div id="countdownScreen">
+    <div id="countdownNumber">3</div>
+</div>
+
+<div class="stars" id="stars"></div>
+
+<div class="container" id="mainContent" style="display:none;">
+
+<div class="name">
+MUTIA PALASARI ❤️
+</div>
+
+<div class="love">
+I LOVE YOU
+</div>
+
+<div class="days" id="days"></div>
+
+<div class="buttons">
+
+<button id="loveBtn" onclick="toggleLetter()">
+💌 Buka Hatiku
+</button>
+
+</div>
+
+<div class="message" id="message">
+<span id="typing"></span>
+</div>
+
+</div>
+
+<script>
+
+/* BINTANG */
+
+for(let i=0;i<120;i++){
+
+let star=document.createElement('div');
+
+star.className='star';
+
+star.style.width=Math.random()*3+'px';
+star.style.height=star.style.width;
+
+star.style.left=Math.random()*100+'%';
+star.style.top=Math.random()*100+'%';
+
+star.style.animationDelay=Math.random()*3+'s';
+
+document.getElementById('stars').appendChild(star);
+
+}
+
+/* HATI BERTERBANGAN */
+
+setInterval(()=>{
+
+let heart=document.createElement('div');
+
+heart.className='heart';
+
+heart.innerHTML='❤️';
+
+heart.style.left=Math.random()*100+'vw';
+
+heart.style.fontSize=(20+Math.random()*20)+'px';
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},8000);
+
+},300);
+
+/* HITUNG HARI JADIAN */
+
+const start=new Date('2023-08-10');
+
+const now=new Date();
+
+const days=Math.floor(
+(now-start)/(1000*60*60*24)
+);
+
+document.getElementById('days').innerHTML=
+'💞 Bersama selama <b>'+days+' hari</b>';
+
+/* SURAT CINTA */
+
+const text = `
+
+Hai Mutia Palasari ❤️
+
+Sejak tanggal 10 Agustus 2023,
+hidupku berubah menjadi lebih indah.
+
+Di antara jutaan bintang yang menghiasi langit malam,
+aku bersyukur karena semesta mempertemukan aku denganmu.
+
+Terima kasih untuk setiap senyuman,
+perhatian dan cinta yang kamu berikan.
+
+Aku mungkin bukan yang sempurna,
+tetapi aku akan selalu berusaha
+menjadi yang terbaik untukmu.
+
+Karena...
+
+I LOVE YOU ❤️
+
+Hari ini.
+Besok.
+Dan Selamanya.
+
+❤️ MUTIA PALASARI ❤️
+
+`;
+
+let isOpen=false;
+let typingInterval;
+
+function toggleLetter(){
+
+const message=document.getElementById('message');
+const typing=document.getElementById('typing');
+const button=document.getElementById('loveBtn');
+
+if(!isOpen){
+
+message.style.display='block';
+
+typing.innerHTML='';
+
+let i=0;
+
+typingInterval=setInterval(()=>{
+
+typing.innerHTML+=text.charAt(i);
+
+i++;
+
+if(i>=text.length){
+
+clearInterval(typingInterval);
+
+launchFireworks();
+
+}
+
+},40);
+
+button.innerHTML='💔 Tutup Hatiku';
+
+isOpen=true;
+
+}else{
+
+clearInterval(typingInterval);
+
+message.style.display='none';
+
+typing.innerHTML='';
+
+button.innerHTML='💌 Buka Hatiku';
+
+isOpen=false;
+
+}
+
+}
+
+/* FIREWORK */
+
+function launchFireworks(){
+
+for(let i=0;i<30;i++){
+
+let fw=document.createElement('div');
+
+fw.className='firework';
+
+fw.innerHTML='✨';
+
+fw.style.left=Math.random()*100+'vw';
+fw.style.top=Math.random()*100+'vh';
+
+document.body.appendChild(fw);
+
+setTimeout(()=>{
+fw.remove();
+},1500);
+
+}
+
+}
+
+/* COUNTDOWN PREMIUM */
+
+const countdownScreen =
+document.getElementById('countdownScreen');
+
+const countdownNumber =
+document.getElementById('countdownNumber');
+
+const mainContent =
+document.getElementById('mainContent');
+
+let sequence = [
+'3',
+'2',
+'1',
+'❤️',
+'Welcome My Love',
+'Mutia Palasari ❤️',
+'I Love You Forever ❤️'
+];
+
+let index = 0;
+
+countdownNumber.innerHTML = sequence[0];
+
+const intro = setInterval(()=>{
+
+index++;
+
+if(index < sequence.length){
+
+countdownNumber.innerHTML = sequence[index];
+
+if(sequence[index] === 'Welcome My Love'){
+
+countdownNumber.style.fontSize = '70px';
+
+}
+
+}else{
+
+clearInterval(intro);
+
+countdownScreen.style.opacity='0';
+
+setTimeout(()=>{
+
+countdownScreen.style.display='none';
+
+mainContent.style.display='block';
+
+mainContent.classList.add('fadeMain');
+
+},1200);
+
+}
+
+},1000);
+
+</script>
+
+</body>
+</html>
+
