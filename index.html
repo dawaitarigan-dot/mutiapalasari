@@ -407,35 +407,6 @@ button.innerHTML='💌 Buka Hatiku';
 
 isOpen=false;
 
-}
-
-}
-
-/* FIREWORK */
-
-function launchFireworks(){
-
-for(let i=0;i<30;i++){
-
-let fw=document.createElement('div');
-
-fw.className='firework';
-
-fw.innerHTML='✨';
-
-fw.style.left=Math.random()*100+'vw';
-fw.style.top=Math.random()*100+'vh';
-
-document.body.appendChild(fw);
-
-setTimeout(()=>{
-fw.remove();
-},1500);
-
-}
-
-}
-
 /* COUNTDOWN PREMIUM */
 
 const countdownScreen =
@@ -457,7 +428,7 @@ let sequence = [
 'I Love You Forever ❤️'
 ];
 
-let index = 0;
+let index = -5;
 
 countdownNumber.innerHTML = sequence[-5];
 
@@ -489,7 +460,7 @@ mainContent.style.display='block';
 
 mainContent.classList.add('fadeMain');
 
-},1400);
+},1500);
 
 }
 
