@@ -248,9 +248,7 @@ transform:scale(1);
 
 <body>
 
-<div id="countdownScreen">
-    <div id="countdownNumber">3</div>
-</div>
+<div class="container" id="mainContent" style="display:none;">
 
 <div class="stars" id="stars"></div>
 
@@ -444,70 +442,9 @@ fw.remove();
 
 }
 
-/* COUNTDOWN PREMIUM */
-
-const countdownScreen =
-document.getElementById('countdownScreen');
-
-const countdownNumber =
-document.getElementById('countdownNumber');
-
-const mainContent =
-document.getElementById('mainContent');
-
-const sequence = [
-    {text:'3', duration:1000},
-    {text:'2', duration:1000},
-    {text:'1', duration:1000},
-    {text:'❤️', duration:1500},
-    {text:'Welcome My Love', duration:2000},
-    {text:'Mutia<br>Palasari ❤️', duration:2500},
-    {text:'I Love You<br>Forever ❤️', duration:3000}
-];
-
-let current = 0;
-
-function showSequence(){
-
-    countdownNumber.innerHTML = sequence[current].text;
-
-if(
-    sequence[current].text === 'Welcome My Love' ||
-    sequence[current].text === 'Mutia Palasari ❤️' ||
-    sequence[current].text === 'I Love You Forever ❤️'
-){
-    countdownNumber.style.fontSize = '40px';
-}else{
-    countdownNumber.style.fontSize = '115px';
-}
-
-    setTimeout(()=>{
-
-        current++;
-
-        if(current < sequence.length){
-
-            showSequence();
-
-        }else{
-
-            countdownScreen.style.opacity='0';
-
-            setTimeout(()=>{
-
-                countdownScreen.style.display='none';
-                mainContent.style.display='block';
-                mainContent.classList.add('fadeMain');
-
-            },1200);
-
-        }
-
-    }, sequence[current].duration);
-
-}
-
-showSequence();
+document.getElementById('countdownScreen').style.display = 'none';
+document.getElementById('mainContent').style.display = 'block';
+document.getElementById('mainContent').classList.add('fadeMain');
 
 </script>
 
