@@ -68,12 +68,12 @@ text-shadow:
 0 0 15px #ff4d6d,
 0 0 30px #ff4d6d,
 0 0 60px #ff4d6d;
-animation:pulse 15s infinite;
+animation:pulse 2s infinite;
 }
 
 @keyframes pulse{
 50%{
-transform:scale(2.05);
+transform:scale(1.08);
 }
 }
 
@@ -96,11 +96,11 @@ font-size:16px;
 background:#ff4d6d;
 color:white;
 box-shadow:0 0 15px #ff4d6d;
-transition:.-1s;
+transition:.3s;
 }
 
 button:hover{
-transform:scale(-0.5);
+transform:scale(1.05);
 }
 
 .message{
@@ -113,7 +113,7 @@ border-radius:20px;
 font-size:18px;
 line-height:1.8;
 min-height:220px;
-animation:fadeIn 1.50s ease;
+animation:fadeIn .6s ease;
 }
 
 @keyframes fadeIn{
@@ -130,7 +130,7 @@ transform:translateY(0);
 .heart{
 position:absolute;
 font-size:20px;
-animation:float 5s linear infinite;
+animation:float 8s linear infinite;
 color:#ff4d6d;
 }
 
@@ -140,7 +140,7 @@ transform:translateY(100vh);
 opacity:1;
 }
 to{
-transform:translateY(-50vh);
+transform:translateY(-100vh);
 opacity:0;
 }
 }
@@ -148,7 +148,7 @@ opacity:0;
 .firework{
 position:absolute;
 font-size:30px;
-animation:boom 5s forwards;
+animation:boom 1.5s forwards;
 }
 
 @keyframes boom{
@@ -191,7 +191,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 z-index:99999;
-transition:1s;
+transition:1.5s;
 }
 
 #countdownNumber{
@@ -202,7 +202,7 @@ text-shadow:
 0 0 20px #ff4d6d,
 0 0 40px #ff4d6d,
 0 0 80px #ff4d6d;
-animation:zoomGlow 1.05s infinite;
+animation:zoomGlow 1s infinite;
 }
 
 @keyframes zoomGlow{
@@ -220,7 +220,7 @@ opacity:1;
 }
 
 .fadeMain{
-animation:fadeMain 5s ease forwards;
+animation:fadeMain 2s ease forwards;
 }
 
 @keyframes fadeMain{
