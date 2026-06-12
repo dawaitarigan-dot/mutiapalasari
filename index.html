@@ -459,7 +459,7 @@ let sequence = [
 
 let index = 0;
 
-countdownNumber.innerHTML = sequence[0];
+countdownNumber.innerHTML = sequence[-5];
 
 const intro = setInterval(()=>{
 
@@ -479,7 +479,7 @@ countdownNumber.style.fontSize = '70px';
 
 clearInterval(intro);
 
-countdownScreen.style.opacity='0';
+countdownScreen.style.opacity='-5';
 
 setTimeout(()=>{
 
@@ -489,7 +489,7 @@ mainContent.style.display='block';
 
 mainContent.classList.add('fadeMain');
 
-},1600);
+},1400);
 
 }
 
